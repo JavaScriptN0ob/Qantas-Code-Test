@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseLogo from '../Logo';
 import SearchResult from '../SearchResult';
-import Grid from '../Grid';
 import Sort from '../Sort';
 
 const StyledApp = styled.div`
@@ -17,6 +16,9 @@ const Logo = styled(BaseLogo)`
 
 const SearchQuery = styled.div`
   margin: 2.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 `;
 
 class App extends React.Component {
@@ -44,20 +46,15 @@ class App extends React.Component {
       <StyledApp>
         <Logo />
         <SearchQuery>
-          <Grid
-            templateColumns="1fr auto"
-            alignItems="center;"
-          >
-            <SearchResult count={5} location="Sydney" />
-            <Sort
-              items={[{
-                key: 'price',
-                directions: [Sort.direction.ASC, Sort.direction.DESC],
-              }]}
-              value={Sort.toValue(sort)}
-              onChange={({ target: { value } }) => this.setSort(Sort.fromValue(value))}
-            />
-          </Grid>
+          <SearchResult count={5} location="Sydney" />
+          <Sort
+            items={[{
+              key: 'price',
+              directions: [Sort.direction.ASC, Sort.direction.DESC],
+            }]}
+            value={Sort.toValue(sort)}
+            onChange={({ target: { value } }) => this.setSort(Sort.fromValue(value))}
+          />
         </SearchQuery>
         <div data-testid="hello-world">Hello World</div>
       </StyledApp>

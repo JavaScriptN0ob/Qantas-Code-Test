@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Grid from '../Grid';
 import capitalize from '../../helpers/capitalize';
+
+const StyledSort = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 1rem;
+  align-items: center;
+`;
 
 const Title = styled.strong`
   font-size: large;
@@ -41,7 +47,7 @@ const Sort = ({
   value,
   onChange,
 }) => (
-  <Grid
+  <StyledSort
     templateColumns="1fr auto"
     gap="1rem"
     alignItems="center"
@@ -60,7 +66,7 @@ const Sort = ({
         );
       }))}
     </select>
-  </Grid>
+  </StyledSort>
 );
 
 Sort.propTypes = {
