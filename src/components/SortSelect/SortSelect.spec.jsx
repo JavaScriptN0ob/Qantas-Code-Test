@@ -6,8 +6,8 @@ import SortSelect from './SortSelect';
 describe('SortSelect', () => {
   afterEach(cleanup);
 
-  test('options', () => {
-    const { getAllByTestId } = render((
+  test('options & title', () => {
+    const { getAllByTestId, getByTestId } = render((
       <SortSelect
         options={[{
           key: 'foo',
@@ -34,6 +34,8 @@ describe('SortSelect', () => {
       value: 'bar-DESC',
       text: 'Bar high-low',
     }];
+
+    expect(getByTestId('sort-title')).toHaveTextContent('Sort by');
 
     getAllByTestId('sort-option').forEach((item, i) => {
       const { value, text } = expectedItems[i];

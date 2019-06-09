@@ -52,7 +52,7 @@ const SortSelect = ({
     gap="1rem"
     alignItems="center"
   >
-    <Title data-testid="sort-title">SortSelect by</Title>
+    <Title data-testid="sort-title">Sort by</Title>
     <select
       value={toValue(value)}
       onChange={(event) => {
