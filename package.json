@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start:dev": "webpack-dev-server",
-    "test:unit": "jest src --config ./jest.config.json",
+    "test:unit": "jest src --config ./jest.config.json --coverage --coverageReporters=text",
     "test:snap": "jest storyshots --config ./jest.config.json --forceExit --detectOpenHandles",
     "test:snapUpdate": "npm run test:snap -- -u",
     "test": "npm run test:snap && npm run test:unit",
@@ -25,6 +25,7 @@
     "npm": ">=6.7.0"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",
