@@ -1,28 +1,31 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import sinon from 'sinon';
-import Sort from './Sort';
+import SortSelect from './SortSelect';
 
-describe('Sort', () => {
+describe('SortSelect', () => {
   afterEach(cleanup);
 
-  test('options & toValue', () => {
+  test('options', () => {
     const { getAllByTestId } = render((
-      <Sort
-        items={[{
+      <SortSelect
+        options={[{
           key: 'foo',
-          directions: [Sort.direction.ASC],
+          directions: [SortSelect.direction.ASC],
         }, {
           key: 'bar',
-          directions: [Sort.direction.ASC, Sort.direction.DESC],
+          directions: [SortSelect.direction.ASC, SortSelect.direction.DESC],
         }]}
-        value=""
+        value={{
+          key: 'bar',
+          direction: SortSelect.direction.ASC,
+        }}
         onChange={() => {}}
       />
     ));
 
     const expectedItems = [{
-      value: Sort.toValue({ key: 'foo', direction: Sort.direction.ASC }),
+      value: 'foo-ASC',
       text: 'Foo low-high',
     }, {
       value: 'bar-ASC',
@@ -40,17 +43,20 @@ describe('Sort', () => {
     });
   });
 
-  test('onChange & value & fromValue', () => {
+  test('onChange & value', () => {
     const onSortSpy = sinon.spy();
 
     const { getByTestId } = render((
-      <Sort
-        items={[{
+      <SortSelect
+        options={[{
           key: 'foo',
-          directions: [Sort.direction.ASC],
+          directions: [SortSelect.direction.ASC],
         }]}
-        value="foo-ASC"
-        onChange={({ target: { value } }) => onSortSpy(Sort.fromValue(value))}
+        value={{
+          key: 'foo',
+          direction: SortSelect.direction.ASC,
+        }}
+        onChange={({ target: { value } }) => onSortSpy(value)}
       />
     ));
 
@@ -63,7 +69,7 @@ describe('Sort', () => {
     fireEvent.change(select, { target: { value } });
     sinon.assert.calledWith(onSortSpy, {
       key: 'foo',
-      direction: Sort.direction.ASC,
+      direction: SortSelect.direction.ASC,
     });
   });
 });

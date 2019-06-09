@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseLogo from '../Logo';
 import SearchResult from '../SearchResult';
-import Sort from '../Sort';
+import SortSelect from '../SortSelect';
 
 const StyledApp = styled.div`
   margin: 1rem auto;
@@ -28,7 +28,7 @@ class App extends React.Component {
     this.state = {
       sort: {
         key: 'price',
-        direction: Sort.direction.DESC,
+        direction: SortSelect.direction.DESC,
       },
     };
   }
@@ -47,13 +47,13 @@ class App extends React.Component {
         <Logo />
         <SearchQuery>
           <SearchResult count={5} location="Sydney" />
-          <Sort
-            items={[{
+          <SortSelect
+            options={[{
               key: 'price',
-              directions: [Sort.direction.ASC, Sort.direction.DESC],
+              directions: [SortSelect.direction.ASC, SortSelect.direction.DESC],
             }]}
-            value={Sort.toValue(sort)}
-            onChange={({ target: { value } }) => this.setSort(Sort.fromValue(value))}
+            value={sort}
+            onChange={({ target: { value } }) => this.setSort(value)}
           />
         </SearchQuery>
         <div data-testid="hello-world">Hello World</div>

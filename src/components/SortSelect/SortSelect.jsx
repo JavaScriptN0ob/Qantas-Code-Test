@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import capitalize from '../../helpers/capitalize';
 
-const StyledSort = styled.div`
+const StyledSortSelect = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   grid-gap: 1rem;
@@ -42,19 +42,33 @@ function fromValue(value) {
   return { key, direction };
 }
 
-const Sort = ({
-  items,
+const SortSelect = ({
+  options,
   value,
   onChange,
 }) => (
-  <StyledSort
+  <StyledSortSelect
     templateColumns="1fr auto"
     gap="1rem"
     alignItems="center"
   >
-    <Title data-testid="sort-title">Sort by</Title>
-    <select value={value} onChange={onChange} data-testid="sort-select">
-      {items.map(({ key, directions }) => directions.map((direction) => {
+    <Title data-testid="sort-title">SortSelect by</Title>
+    <select
+      value={toValue(value)}
+      onChange={(event) => {
+        const { target: { value: thisValue } } = event;
+        const newValue = fromValue(thisValue);
+
+        const newEvent = {
+          ...event,
+          target: { value: newValue },
+        };
+
+        onChange(newEvent);
+      }}
+      data-testid="sort-select"
+    >
+      {options.map(({ key, directions }) => directions.map((direction) => {
         const thisKey = toValue({ key, direction });
 
         return (
@@ -66,20 +80,23 @@ const Sort = ({
         );
       }))}
     </select>
-  </StyledSort>
+  </StyledSortSelect>
 );
 
-Sort.propTypes = {
-  value: PropTypes.string.isRequired,
+const directionPropType = PropTypes.oneOf(Object.values(DIRECTION));
+
+SortSelect.propTypes = {
+  value: PropTypes.shape({
+    key: PropTypes.string,
+    direction: directionPropType,
+  }).isRequired,
   onChange: PropTypes.func.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    directions: PropTypes.arrayOf(PropTypes.oneOf(Object.values(DIRECTION))),
+  options: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string,
+    directions: PropTypes.arrayOf(directionPropType),
   })).isRequired,
 };
 
-Sort.direction = DIRECTION;
-Sort.toValue = toValue;
-Sort.fromValue = fromValue;
+SortSelect.direction = DIRECTION;
 
-export default Sort;
+export default SortSelect;
