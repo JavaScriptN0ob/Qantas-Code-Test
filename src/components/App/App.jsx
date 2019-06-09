@@ -4,7 +4,7 @@ import Logo from '../Logo';
 const App = () => (
   <div>
     <Logo />
-    <p>Hello World</p>
+    <p data-testid="hello-world">Hello World</p>
   </div>
 );
 
