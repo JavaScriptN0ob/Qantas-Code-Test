@@ -57,7 +57,10 @@ const SortSelect = ({
 
         const newEvent = {
           ...event,
-          target: { value: newValue },
+          target: {
+            ...event.target,
+            value: newValue,
+          },
         };
 
         onChange(newEvent);
