@@ -47,11 +47,7 @@ const SortSelect = ({
   value,
   onChange,
 }) => (
-  <StyledSortSelect
-    templateColumns="1fr auto"
-    gap="1rem"
-    alignItems="center"
-  >
+  <StyledSortSelect>
     <Title data-testid="sort-title">Sort by</Title>
     <select
       value={toValue(value)}
