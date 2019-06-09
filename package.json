@@ -1,0 +1,18 @@
+{
+  "name": "qantas-code-test",
+  "version": "1.0.0",
+  "description": "Qantas Code Test",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Long Zhao",
+    "email": "zlong@outlook.com",
+    "url": "https://www.linkedin.com/in/long-zhao-32a96916a/"
+  },
+  "engines": {
+    "node": ">=10.13.0",
+    "npm": ">=6.7.0"
+  }
+}
