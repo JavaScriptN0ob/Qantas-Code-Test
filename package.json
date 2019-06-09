@@ -10,6 +10,7 @@
     "test:snapUpdate": "npm run test:snap -- -u",
     "test": "npm run test:snap && npm run test:unit",
     "pretest": "npm run lint",
+    "build": "webpack --mode production",
     "lint": "npx eslint --ext .jsx,.js ./src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
