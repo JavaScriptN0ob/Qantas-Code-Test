@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "webpack-dev-server",
     "test:unit": "jest src --config ./jest.config.json --coverage --coverageReporters=text",
-    "test:snap": "jest storyshots --config ./jest.config.json --forceExit --detectOpenHandles",
+    "test:snap": "jest storyshots --config ./jest.config.json",
     "test:snapUpdate": "npm run test:snap -- -u",
     "test": "npm run test:snap && npm run test:unit",
     "pretest": "npm run lint",

@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components Grid 1`] = `
-.c0 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.c1 {
-  background: #3498db;
-  color: white;
-}
-
-<div
-  className="c0"
->
-  <div
-    className="c1"
-  >
-    item-0
-  </div>
-  <div
-    className="c1"
-  >
-    item-1
-  </div>
-</div>
-`;
-
 exports[`Storyshots Components Logo 1`] = `
 <img
   alt="Qantas"
