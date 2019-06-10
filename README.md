@@ -8,12 +8,18 @@ http://kieradog.github.io/Qantas-Code-Test
 
 React, Storybook, Storybook Snapshot Test, Jest Unit Test (@testing-library/react), Basic Webpack and Babel.
 
-Test Coverage: 99.07%
+Test Coverage: 99.08%
 
 ### Browser Compatibility
 
 - Target: > 0.25%, not dead
 - Tested: Chrome, Safari
+
+## Issues
+
+- Component App is not well tested, only `sortHotels`, planed to do E2E, however considered over engineering for this project
+- Some Component is not 100% covered, because guarded by `propTypes`
+- The `props` and `onChange` function of `SortSelect` need documented, `{ key: string, directions: Direction[]}` and `{ key: string, direction: Direction }`
 
 ## Getting Started
 
@@ -42,7 +48,8 @@ Test Coverage: 99.07%
 
 ## Running the tests
 
-`npm run test` to run __Lint__, __Unit Test__, __Snapshot Test__.
+1. `npm i` to install the website's npm dependencies
+2. `npm run test` to run __Lint__, __Unit Test__, __Snapshot Test__.
 
 ### Lint
 
@@ -82,4 +89,4 @@ ESLint, check syntax, find problems, and enforce code style.
 
 ## Authors
 
-- Long Zhao - zlong@outlook.com
+- Long Zhao, zlong@outlook.com
