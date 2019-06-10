@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseLogo from '../Logo';
-import SearchResult from '../SearchResult';
-import SearchHotels from '../SearchHotels';
-import SortSelect from '../SortSelect';
 import { results } from '../../data.json';
+import BaseLogo from '../Logo';
+import SearchHotels from '../SearchHotels';
+import SearchResult from '../SearchResult';
+import SortSelect from '../SortSelect';
 import sortHotels from './sortHotels';
 
 const StyledApp = styled.div`
@@ -17,7 +17,7 @@ const Logo = styled(BaseLogo)`
   height: 2.5rem;
 `;
 
-const SearchQuery = styled.div`
+const Sub = styled.div`
   margin: 2.5rem 0;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -60,7 +60,7 @@ class App extends React.Component {
         <h1>
           <Logo />
         </h1>
-        <SearchQuery>
+        <Sub>
           <SearchResult count={hotels.length} location="Sydney" />
           <SortSelect
             options={[{
@@ -70,7 +70,7 @@ class App extends React.Component {
             value={sort}
             onChange={({ target: { value } }) => this.setSort(value)}
           />
-        </SearchQuery>
+        </Sub>
         <SearchHotels hotels={hotels} />
       </StyledApp>
     );
