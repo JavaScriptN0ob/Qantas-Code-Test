@@ -11,15 +11,15 @@ describe('SearchResult', () => {
 
   afterEach(cleanup);
 
-  test('Text', () => {
+  test('text', () => {
     expect(getByTestId('search-result')).toHaveTextContent('5 hotels in Sydney');
   });
 
-  test('Count', () => {
+  test('count', () => {
     expect(getByTestId('count')).toHaveTextContent('5');
   });
 
-  test('Location', () => {
+  test('location', () => {
     expect(getByTestId('location')).toHaveTextContent('Sydney');
   });
 });

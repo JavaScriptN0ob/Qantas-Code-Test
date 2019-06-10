@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseLogo from '../Logo';
 import SearchResult from '../SearchResult';
+import SearchHotels from '../SearchHotels';
 import SortSelect from '../SortSelect';
+import { results } from '../../data.json';
 
 const StyledApp = styled.div`
   margin: 1rem auto;
@@ -30,6 +32,7 @@ class App extends React.Component {
         key: 'price',
         direction: SortSelect.direction.DESC,
       },
+      hotels: results,
     };
   }
 
@@ -40,11 +43,13 @@ class App extends React.Component {
   }
 
   render() {
-    const { sort } = this.state;
+    const { sort, hotels } = this.state;
 
     return (
       <StyledApp>
-        <Logo />
+        <h1>
+          <Logo />
+        </h1>
         <SearchQuery>
           <SearchResult count={5} location="Sydney" />
           <SortSelect
@@ -56,7 +61,7 @@ class App extends React.Component {
             onChange={({ target: { value } }) => this.setSort(value)}
           />
         </SearchQuery>
-        <div data-testid="hello-world">Hello World</div>
+        <SearchHotels hotels={hotels} />
       </StyledApp>
     );
   }
