@@ -67,13 +67,17 @@ describe('SearchHotel', () => {
   });
 
   test('Offer', () => {
-    const { getByTestId } = render(<SearchHotel property={data.property} offer={data.offer} />);
+    const { getByTestId, queryByTestId } = render((
+      <SearchHotel property={data.property} offer={data.offer} />
+    ));
 
     expect(getByTestId('search-hotel-offer-heading')).toHaveTextContent(`1 night total (${data.offer.displayPrice.currency})`);
     expect(getByTestId('search-hotel-display-price')).toHaveTextContent(`${mapCurrencyToSymbol(data.offer.displayPrice.currency)}${data.offer.displayPrice.amount}`);
 
     if (data.offer.savings) {
       expect(getByTestId('search-hotel-savings')).toHaveTextContent(`Save ${mapCurrencyToSymbol(data.offer.savings.currency)}${data.offer.savings.amount}~`);
+    } else {
+      expect(queryByTestId('search-hotel-savings')).toBeFalsy();
     }
   });
 });
