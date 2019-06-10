@@ -46,7 +46,9 @@ describe('SearchHotel', () => {
   afterEach(cleanup);
 
   test('Details', () => {
-    const { getByTestId } = render(<SearchHotel property={data.property} offer={data.offer} />);
+    const { getByTestId, queryByTestId } = render((
+      <SearchHotel property={data.property} offer={data.offer} />
+    ));
 
     const coverImage = getByTestId('search-hotel-cover-image');
     expect(coverImage.alt).toBe(data.property.title);
@@ -57,6 +59,8 @@ describe('SearchHotel', () => {
 
     if (data.offer.cancellationOption.cancellationType === 'FREE_CANCELLATION') {
       expect(getByTestId('search-hotel-free-cancellation')).toBeTruthy();
+    } else {
+      expect(queryByTestId('search-hotel-free-cancellation')).toBeFalsy();
     }
 
     expect(getByTestId('search-hotel-promotion-title')).toHaveTextContent(data.offer.promotion.title);
