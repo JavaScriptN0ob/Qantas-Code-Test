@@ -11,9 +11,11 @@
     "test": "npm run test:snap && npm run test:unit",
     "pretest": "npm run lint",
     "build": "webpack --mode production",
-    "lint": "npx eslint --ext .jsx,.js ./src",
+    "lint": "eslint --ext .jsx,.js ./src",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "predeploy": "npm run test && npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": {
     "name": "Long Zhao",
@@ -52,6 +54,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
     "file-loader": "^4.0.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
