@@ -21,7 +21,7 @@ const DIRECTION = {
 
 function mapDirectionToText(direction) {
   if (!Object.values(DIRECTION).includes(direction)) {
-    return 'ERROR: DIRECTION NOT SUPPORTED';
+    return '';
   }
 
   return {
