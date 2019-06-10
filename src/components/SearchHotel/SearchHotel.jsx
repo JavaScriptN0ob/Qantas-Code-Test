@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Offer as OfferPropTypes, Property } from '../../propTypes/SearchHotel';
 import style from '../../style';
 import Offer from './Offer';
+import cancellable from './cancellable';
 
 const StyledSearchHotel = styled.div`
   --gap: 1rem;
@@ -78,12 +79,6 @@ const FreeCancellation = styled.div`
   align-self: end;
   color: ${style.RIPTIDE_GREEN};
 `;
-
-function cancellable({ cancellationType }) {
-  const FREE_CANCELLATION = 'FREE_CANCELLATION';
-
-  return cancellationType === FREE_CANCELLATION;
-}
 
 const SearchHotel = ({
   property: {

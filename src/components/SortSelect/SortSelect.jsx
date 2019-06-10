@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import capitalize from '../../helpers/capitalize';
+import mapDirectionToText, { DIRECTION } from './mapDirectionToText';
 
 const StyledSortSelect = styled.div`
   display: grid;
@@ -13,22 +14,6 @@ const StyledSortSelect = styled.div`
 const Title = styled.strong`
   font-size: large;
 `;
-
-const DIRECTION = {
-  ASC: 'ASC',
-  DESC: 'DESC',
-};
-
-function mapDirectionToText(direction) {
-  if (!Object.values(DIRECTION).includes(direction)) {
-    return '';
-  }
-
-  return {
-    [DIRECTION.ASC]: 'low-high',
-    [DIRECTION.DESC]: 'high-low',
-  }[direction];
-}
 
 const SPLIT = '-';
 
