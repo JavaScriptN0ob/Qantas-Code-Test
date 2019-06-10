@@ -11,9 +11,9 @@ const Rate = ({
   type,
   className,
 }) => {
-  const ThisCharacter = mapTypeToCharacter(type);
+  const Character = mapTypeToCharacter(type);
 
-  if (!ThisCharacter) {
+  if (!Character) {
     return null;
   }
 
@@ -21,7 +21,7 @@ const Rate = ({
 
   for (let i = 0; i < value; i += 1) {
     characters.push((
-      <ThisCharacter value={value} index={i} key={i} />
+      <Character value={value} index={i} key={i} />
     ));
   }
 
