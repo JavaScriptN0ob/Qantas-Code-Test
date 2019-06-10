@@ -1,12 +1,17 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 import Rate from '../Rate';
 import mapRatingTypeToRateType from './mapRatingTypeToRateType';
+
+const StyledRate = styled(Rate)`
+  color: #FBCB3B;
+`;
 
 const HotelRating = ({
   rating: { ratingValue, ratingType },
 }) => (
-  <Rate value={ratingValue} type={mapRatingTypeToRateType(ratingType)} />
+  <StyledRate value={ratingValue} type={mapRatingTypeToRateType(ratingType)} />
 );
 
 HotelRating.propTypes = {

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import mapTypeToCharacter, { TYPE } from './mapTypeToCharacter';
 
 const StyledRate = styled.div`
-  color: #FBCB3B;
 `;
 
 const Rate = ({
