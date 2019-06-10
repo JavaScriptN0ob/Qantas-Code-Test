@@ -9,12 +9,8 @@ exports[`Storyshots Components Logo 1`] = `
 `;
 
 exports[`Storyshots Components Rate - Circle 1`] = `
-.c0 {
-  color: #FBCB3B;
-}
-
 <div
-  className="c0"
+  className=""
   data-testid="rate"
   title={2.5}
 >
@@ -79,12 +75,8 @@ exports[`Storyshots Components Rate - Circle 1`] = `
 `;
 
 exports[`Storyshots Components Rate - Star 1`] = `
-.c0 {
-  color: #FBCB3B;
-}
-
 <div
-  className="c0"
+  className=""
   data-testid="rate"
   title={2.5}
 >
