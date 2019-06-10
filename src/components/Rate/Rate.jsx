@@ -27,7 +27,7 @@ const Rate = ({
   }
 
   return (
-    <StyledRate data-testid="rate" className={className}>
+    <StyledRate title={value} data-testid="rate" className={className}>
       {characters}
     </StyledRate>
   );
