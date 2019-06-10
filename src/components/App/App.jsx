@@ -5,6 +5,7 @@ import SearchResult from '../SearchResult';
 import SearchHotels from '../SearchHotels';
 import SortSelect from '../SortSelect';
 import { results } from '../../data.json';
+import sortHotels from './sortHotels';
 
 const StyledApp = styled.div`
   margin: 1rem auto;
@@ -27,18 +28,27 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    const sort = {
+      key: 'price',
+      direction: SortSelect.direction.DESC,
+    };
+
+    const hotels = sortHotels(results, sort);
+
     this.state = {
-      sort: {
-        key: 'price',
-        direction: SortSelect.direction.DESC,
-      },
-      hotels: results,
+      sort,
+      hotels,
     };
   }
 
   setSort(sort) {
-    this.setState({
-      sort,
+    this.setState(({ hotels }) => {
+      const newHotels = sortHotels(hotels, sort);
+
+      return {
+        sort,
+        hotels: newHotels,
+      };
     });
   }
 
@@ -51,7 +61,7 @@ class App extends React.Component {
           <Logo />
         </h1>
         <SearchQuery>
-          <SearchResult count={5} location="Sydney" />
+          <SearchResult count={hotels.length} location="Sydney" />
           <SortSelect
             options={[{
               key: 'price',
