@@ -3,8 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Offer as OfferPropTypes, Property } from '../../propTypes/SearchHotel';
 import style from '../../style';
-import Offer from './Offer';
 import cancellable from './cancellable';
+import HotelRating from './HotelRating';
+import Offer from './Offer';
 
 const StyledSearchHotel = styled.div`
   --gap: 1rem;
@@ -59,10 +60,17 @@ const Heading = styled.div`
 
 const Title = styled.h2`
   margin: 0;
-  width: 25rem;
+  max-width: 25rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+const TitleWithRating = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 1rem;
+  align-items: center;
 `;
 
 const Address = styled.address`
@@ -85,6 +93,7 @@ const SearchHotel = ({
     title,
     address,
     previewImage: { url },
+    rating,
   },
   offer,
 }) => {
@@ -99,7 +108,10 @@ const SearchHotel = ({
       <CoverImage src={url} alt={title} data-testid="search-hotel-cover-image" />
       <Details>
         <Heading>
-          <Title data-testid="search-hotel-title">{title}</Title>
+          <TitleWithRating>
+            <Title data-testid="search-hotel-title">{title}</Title>
+            <HotelRating rating={rating} />
+          </TitleWithRating>
           <Address data-testid="search-hotel-address">{address.join(', ')}</Address>
         </Heading>
         <OfferName data-testid="search-hotel-offer-name">{name}</OfferName>
