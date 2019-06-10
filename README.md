@@ -18,15 +18,16 @@ Test Coverage: 99.08%
 ## Issues
 
 - Component App is not well tested, only `sortHotels`, planed to do E2E, however considered over engineering for this project
-- Some Component is not 100% covered, because guarded by `propTypes`
+- Some Component is not 100% covered, because of guarded by `propTypes`
 - The `props` and `onChange` function of `SortSelect` need documented, `{ key: string, directions: Direction[]}` and `{ key: string, direction: Direction }`
+- using `styled-components@3`, because of v4's `jest-styled-components` is not supported
 
 ## Getting Started
 
 ### Prerequisites
 
 - Git
-- Node(& npm): any 8.x version starting with 10.13.0 or greater
+- Node(& npm): any 10.x version starting with 10.13.0 or greater
 
 ### Installation
 
