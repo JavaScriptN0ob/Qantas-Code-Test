@@ -17,7 +17,7 @@ Test Coverage: 99.08%
 
 ## Issues
 
-- Component App is not well tested, only `sortHotels`, planed to do E2E, however considered over engineering for this project
+- E2E might fail because it required to start server on 8080, need docker
 - Some Component is not 100% covered, because of guarded by `propTypes`
 - The `props` and `onChange` function of `SortSelect` need documented, `{ key: string, directions: Direction[]}` and `{ key: string, direction: Direction }`
 - using `styled-components@3`, because of v4's `jest-styled-components` is not supported
@@ -50,7 +50,7 @@ Test Coverage: 99.08%
 ## Running the tests
 
 1. `npm i` to install the website's npm dependencies
-2. `npm run test` to run __Lint__, __Unit Test__, __Snapshot Test__.
+2. `npm run test` to run __Lint__, __Unit Test__, __Snapshot Test__, __E2E Test__.
 
 ### Lint
 
@@ -72,6 +72,12 @@ ESLint, check syntax, find problems, and enforce code style.
 - Tool: Jest, Storybook
 - Test Config: `./storyshots/storyshots.spec.js`
 - Snapshots: `./storyshots/__snapshots__/storyshots.spec.js`
+
+### E2E Test
+
+`npm run test:e2e` to run E2E test
+
+- Tool: Jest, Puppeteer, jest-puppeteer
 
 ## Deploy
 
