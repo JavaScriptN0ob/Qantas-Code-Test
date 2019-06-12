@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    command: 'npm run start:prod',
+    command: 'npm run start:test',
     port: process.env.PORT || 8080,
     launchTimeout: 10000,
   },
