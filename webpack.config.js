@@ -2,6 +2,7 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'build/');
 const SOURCE_DIR = path.resolve(__dirname, 'src/');
@@ -36,5 +37,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${SOURCE_DIR}/index.html`,
     }),
+    new CleanWebpackPlugin(),
   ],
 };
